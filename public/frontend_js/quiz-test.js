@@ -1293,7 +1293,7 @@ async function terminateQuiz() {
 
   //set the default currentQuestionCounter to 1000000 seconds
   currentQuestionCounter = 1000000;
-  clearTimeout(closeResponseTimeout);
+  clearTimeout(closeResponseTimeout); //clear the timeout
 
   $("#page1").hide();
   $("#page2").hide();
@@ -1308,7 +1308,7 @@ async function terminateQuiz() {
 
   const res = await fetch("/admin/getTerminationMsg");
   const { terminationMsg, countDownNo } = await res.json();
-  let i = 10;
+  let i = countDownNo;
   $(".terminationMsg").text(terminationMsg);
 
   $(".countDownNo").text(i);
